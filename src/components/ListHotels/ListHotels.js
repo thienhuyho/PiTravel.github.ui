@@ -56,7 +56,7 @@ const ListHotels = () => {
         <Text color={colors.darkGrey}>Giá trung bình: 1.214.234 VND</Text>
       </View>
       <View style={styles.scroll}>
-        <ScrollView nestedScrollEnabled={true}>
+        <ScrollView nestedScrollEnabled>
           {hotels.hotels.map(item => {
             return (
               <View key={item.id}>
@@ -77,7 +77,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     padding: 5,
-    height: 800,
   },
   post: {
     borderBottomWidth: 1,
@@ -115,6 +114,6 @@ const styles = StyleSheet.create({
     color: colors.lightGreen,
   },
   scroll: {
-    maxHeight: 400,
+    maxHeight: 200,
   },
 })
