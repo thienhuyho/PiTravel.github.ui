@@ -18,10 +18,8 @@ const ListHotels = () => {
     async function fetchPosts() {
       dispatch(actionCreators.loading())
       try {
-        // for (let i = 0; i <= 1000000000; i++);
         const response = await fetch('https://pibooking.vn/api/hotels')
         const hotels = await response.json()
-        console.log(hotels)
         setTimeout(() => {
           dispatch(actionCreators.success(hotels))
         }, 1000)
@@ -49,16 +47,16 @@ const ListHotels = () => {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <View style={styles.titleList}>
         <Text style={styles.vn}>Việt Nam</Text>
         <Text style={styles.chose}>Lựa chọn hàng đầu của chúng tôi</Text>
-        <Text>Giá trung bình: 1.214.234 VND</Text>
+        <Text color={colors.darkGrey}>Giá trung bình: 1.214.234 VND</Text>
       </View>
       {hotels.hotels.map(item => {
         console.log('cl', item)
         return (
-          <View style={styles.container} key={item.id}>
+          <View key={item.id}>
             <Hotel item={item} id={item.id} />
           </View>
         )
@@ -73,6 +71,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    padding: 5,
   },
   post: {
     borderBottomWidth: 1,
@@ -98,6 +97,7 @@ const styles = StyleSheet.create({
   },
   titleList: {
     backgroundColor: '#fff',
+    marginBottom: 10,
   },
   vn: {
     fontSize: 20,

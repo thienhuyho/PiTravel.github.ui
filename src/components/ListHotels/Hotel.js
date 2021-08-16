@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 const Hotel = ({ item, id }) => {
   const moveToAddNewCustomer = ids => {
@@ -18,7 +19,10 @@ const Hotel = ({ item, id }) => {
       </View>
       <View style={styles.right}>
         <Text>{item.name}</Text>
-        <Text>{item.address}</Text>
+        <Text>
+          <Icon name='location-sharp' size={18} />
+          {item.address}
+        </Text>
         <Text>Giá chỉ từ: {item.price} VND</Text>
       </View>
     </View>
@@ -32,6 +36,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     flexDirection: 'row',
+    marginBottom: 5,
   },
   image: {
     height: 60,
@@ -39,7 +44,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
   },
   left: {
-    margin: 5,
+    marginRight: 5,
   },
   right: {
     marginRight: 5,

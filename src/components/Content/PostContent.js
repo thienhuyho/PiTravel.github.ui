@@ -47,7 +47,7 @@ const PostContent = () => {
         onPress={() => setIsShowPost(!isShowPost)}
       >
         <Text style={styles.textButton}>
-          {isShowPost ? 'thu gọn' : 'xem thêm...'}
+          {isShowPost ? 'Thu gọn' : 'xem thêm...'}
         </Text>
       </Pressable>
     </View>
@@ -63,12 +63,13 @@ const styles = StyleSheet.create({
   },
   container: {
     padding: 10,
+    backgroundColor: '#fff',
   },
   button: {
     color: colors.lightGrey,
   },
   textButton: {
-    color: colors.darkGreen,
+    color: colors.darkGrey,
     fontWeight: 'bold',
   },
 })
