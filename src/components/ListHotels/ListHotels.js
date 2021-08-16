@@ -7,7 +7,7 @@ import {
   ActivityIndicator,
   FlatList,
 } from 'react-native'
-
+import colors from '../../theme/colors'
 import { actionCreators, initialState, reducer } from './hotels'
 import Hotel from './Hotel'
 
@@ -102,10 +102,10 @@ const styles = StyleSheet.create({
   vn: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#00a99d',
+    color: colors.lightGreen,
   },
   chose: {
     fontSize: 16,
-    color: '#00a99d',
+    color: colors.lightGreen,
   },
 })

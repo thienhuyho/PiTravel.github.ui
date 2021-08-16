@@ -1,19 +1,25 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 
 const Hotel = ({ item, id }) => {
+  const moveToAddNewCustomer = ids => {
+    console.log('id', ids)
+  }
   console.log('cc', item.url, id)
   return (
     <View style={styles.container}>
       <View style={styles.left}>
-        <Image
-          style={styles.image}
-          source={{ uri: `https://pibooking.vn/${item.url}` }}
-        />
+        <TouchableOpacity onPress={() => moveToAddNewCustomer(id)}>
+          <Image
+            style={styles.image}
+            source={{ uri: `https://pibooking.vn/${item.url}` }}
+          />
+        </TouchableOpacity>
       </View>
       <View style={styles.right}>
-        <Text>{id}</Text>
         <Text>{item.name}</Text>
+        <Text>{item.address}</Text>
+        <Text>Giá chỉ từ: {item.price} VND</Text>
       </View>
     </View>
   )
@@ -36,6 +42,7 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   right: {
-    margin: 5,
+    marginRight: 5,
+    width: '100%',
   },
 })
