@@ -1,10 +1,11 @@
 import React, { useEffect, useReducer } from 'react'
-import { StyleSheet, Text, View, useWindowDimensions } from 'react-native'
+import { StyleSheet, Text, View, useWindowDimensions, Button } from 'react-native'
 import Posts from '../GetApiPost/posts';
 import RenderHTML from "react-native-render-html";
 
 const PostContent = () => {
     const [post, setPost] = React.useState([]);
+    const [isShowPost, setIsShowPost] = React.useState(false);
     useEffect(() => {
         fetch('https://pibooking.vn/api/posts')
             .then((response) => response.json())
@@ -25,9 +26,15 @@ const PostContent = () => {
     const { width } = useWindowDimensions();
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>{post.name}</Text>
-            {/* <RenderHTML contentWidth={width} source={{ htmlTitle }} /> */}
-            <RenderHTML contentWidth={width} source={{ html }} />
+            {
+                isShowPost ?
+                    <>
+                        <Text style={styles.text}>{post.name}</Text>
+                        <RenderHTML contentWidth={width} source={{ html }} />
+                    </>
+                    : null
+            }
+            <Button title={isShowPost ? 'thu gọn' : 'xem thêm...'} onPress={() => setIsShowPost(!isShowPost)} />
         </View>
     )
 }
