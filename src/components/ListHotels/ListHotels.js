@@ -6,6 +6,8 @@ import {
   Image,
   ActivityIndicator,
   FlatList,
+  ScrollView,
+  SafeAreaView,
 } from 'react-native'
 import colors from '../../theme/colors'
 import { actionCreators, initialState, reducer } from './hotels'
@@ -53,14 +55,17 @@ const ListHotels = () => {
         <Text style={styles.chose}>Lựa chọn hàng đầu của chúng tôi</Text>
         <Text color={colors.darkGrey}>Giá trung bình: 1.214.234 VND</Text>
       </View>
-      {hotels.hotels.map(item => {
-        console.log('cl', item)
-        return (
-          <View key={item.id}>
-            <Hotel item={item} id={item.id} />
-          </View>
-        )
-      })}
+      <View style={styles.scroll}>
+        <ScrollView nestedScrollEnabled={true}>
+          {hotels.hotels.map(item => {
+            return (
+              <View key={item.id}>
+                <Hotel item={item} id={item.id} />
+              </View>
+            )
+          })}
+        </ScrollView>
+      </View>
     </View>
   )
 }
@@ -72,6 +77,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     padding: 5,
+    height: 800,
   },
   post: {
     borderBottomWidth: 1,
@@ -107,5 +113,8 @@ const styles = StyleSheet.create({
   chose: {
     fontSize: 16,
     color: colors.lightGreen,
+  },
+  scroll: {
+    maxHeight: 400,
   },
 })

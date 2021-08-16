@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     flexDirection: 'row',
+    marginBottom: 5,
   },
   image: {
     height: 60,
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
   },
   left: {
-    margin: 5,
+    marginRight: 5,
   },
   right: {
     marginRight: 5,
