@@ -23,5 +23,6 @@ module.exports = {
     'no-param-reassign': 'off',
     camelcase: 'off',
     'no-empty-pattern': 'off',
+    'global-require': 'off',
   },
 }
