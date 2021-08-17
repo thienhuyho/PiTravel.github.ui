@@ -10,10 +10,12 @@ import {
   SafeAreaView,
 } from 'react-native'
 import colors from '../../theme/colors'
+import styles from './styles'
+
 import { actionCreators, initialState, reducer } from './hotels'
 import Hotel from './Hotel'
 
-const ListHotels = () => {
+const ListHotels = ({ navigation }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState)
 
   React.useEffect(() => {
@@ -60,7 +62,7 @@ const ListHotels = () => {
           {hotels.hotels.map(item => {
             return (
               <View key={item.id}>
-                <Hotel item={item} id={item.id} />
+                <Hotel navigation={navigation} item={item} id={item.id} />
               </View>
             )
           })}
@@ -69,51 +71,4 @@ const ListHotels = () => {
     </View>
   )
 }
-
 export default ListHotels
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    padding: 5,
-  },
-  post: {
-    borderBottomWidth: 1,
-    borderBottomColor: 'white',
-    paddingVertical: 20,
-    paddingRight: 20,
-    marginLeft: 20,
-  },
-  title: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: 'white',
-  },
-  body: {
-    marginTop: 10,
-    fontSize: 14,
-    color: '#F8F8F8',
-  },
-  center: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  titleList: {
-    backgroundColor: '#fff',
-    marginBottom: 10,
-  },
-  vn: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: colors.lightGreen,
-  },
-  chose: {
-    fontSize: 16,
-    color: colors.lightGreen,
-  },
-  scroll: {
-    maxHeight: 200,
-  },
-})
