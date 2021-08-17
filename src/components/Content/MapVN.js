@@ -19,6 +19,8 @@ const styles = StyleSheet.create({
   text: {
     color: '#00a99d',
     fontWeight: 'bold',
+    fontSize: 16,
+    marginBottom: 5,
   },
   map: {
     width: '100%',

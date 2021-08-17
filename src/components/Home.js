@@ -6,13 +6,13 @@ import PostContent from './Content/PostContent'
 import ListHotels from './ListHotels/ListHotels'
 import Header from './Header'
 
-export default function Home() {
+export default function Home({ navigation }) {
   return (
     <ScrollView>
       <Header />
       <MapVN />
       <PostContent />
-      <ListHotels />
+      <ListHotels navigation={navigation} />
       <View style={styles.container}>
         {/* <Button
                         title="Add some friends"

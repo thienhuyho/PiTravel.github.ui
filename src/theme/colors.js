@@ -9,4 +9,5 @@ export default {
   lightGrey: '#d2d2d2',
   white: '#eff1f0',
   darkWhite: '#ebebeb',
+  lightWhite: '#ffffff',
 }

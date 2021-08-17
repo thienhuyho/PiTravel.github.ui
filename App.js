@@ -1,29 +1,30 @@
-import 'react-native-gesture-handler';
-import React from 'react';
-import AppStyle from './src/theme';
-import AppNavigator from './src/navigators/AppNavigator';
+import 'react-native-gesture-handler'
+import React from 'react'
+import AppStyle from './src/theme'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import Home from './src/components/Home'
+import PanelHotel from './src/components/DetailsHotel/PanelHotel'
 // import Footer from './src/components/Footer/Footer';
-import {
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-
+import { StyleSheet, Text, View } from 'react-native'
+const Stack = createStackNavigator()
 const App = () => {
   return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='Home' component={Home} />
+        <Stack.Screen name='PanelHotel' component={PanelHotel} />
+      </Stack.Navigator>
+    </NavigationContainer>
     // <View style={styles.container}>
     //   <Text style={styles.welcome}>
     //     Welcome to the Demo!
     //   </Text>
     //   <Text style={AppStyle.StyleMain.button2}>Button 2!</Text>
     // </View>
-    <>
-      <AppNavigator />
-      {/* <Footer /> */}
-    </>
-
-
-  );
+    // {/* <AppNavigator /> */}
+    // {/* <Footer /> */}
+  )
 }
 
 const styles = StyleSheet.create({
@@ -34,4 +35,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
 })
-export default App;
+export default App
