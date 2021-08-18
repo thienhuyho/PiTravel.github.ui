@@ -44,6 +44,7 @@ const Header = ({}) => {
             style={[styles.searchContainer, { height: isFulled ? 290 : 100 }]}
           >
             <Input
+              style={{ marginBottom: 20 }}
               leftIcon={
                 <AntDesign name='search1' size={30} color={colors.darkGrey} />
               }
@@ -52,6 +53,7 @@ const Header = ({}) => {
             {isFulled && (
               <>
                 <Input
+                  style={{ marginBottom: 20 }}
                   leftIcon={
                     <AntDesign
                       name='calendar'
@@ -62,6 +64,7 @@ const Header = ({}) => {
                   placeholder='Nhận phòng - trả phòng'
                 />
                 <Input
+                  style={{ marginBottom: 20 }}
                   leftIcon={
                     <SimpleLineIcons
                       name='people'
@@ -91,7 +94,7 @@ const Header = ({}) => {
                 />
               </>
             )}
-            <Pressable
+            <TouchableOpacity
               style={styles.chevron}
               onPress={() => setIsFulled(prev => !prev)}
             >
@@ -100,7 +103,7 @@ const Header = ({}) => {
                 color={colors.white}
                 size={30}
               />
-            </Pressable>
+            </TouchableOpacity>
           </View>
         </View>
       </View>

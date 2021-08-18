@@ -9,9 +9,9 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import appTheme from './theme'
+
 const { COLORS, FONTS, SIZES } = appTheme
 const ImageHotel = ({ images }) => {
-  console.log('image', images)
   const [completed, setCompleted] = React.useState(false)
 
   const scrollX = new Animated.Value(0)
@@ -44,7 +44,6 @@ const ImageHotel = ({ images }) => {
         )}
       >
         {images.map((item, index) => {
-          console.log('dm', item)
           return (
             <View
               //center
