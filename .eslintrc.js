@@ -24,5 +24,6 @@ module.exports = {
     camelcase: 'off',
     'no-empty-pattern': 'off',
     'global-require': 'off',
+    'react/jsx-curly-brace-presence': 'off',
   },
 }

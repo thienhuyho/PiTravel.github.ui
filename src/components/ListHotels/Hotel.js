@@ -2,11 +2,9 @@ import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import styles from './styles'
+
 const Hotel = ({ navigation, item, id }) => {
-  console.log('aa', item)
-  const moveToAddNewCustomer = ids => {
-    console.log('id', ids)
-  }
+  const moveToAddNewCustomer = ids => {}
   return (
     <View style={styles.containerHotel}>
       <View style={styles.left}>
