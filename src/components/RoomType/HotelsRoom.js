@@ -13,7 +13,7 @@ const HotelsRoom = ({ hotelRooms }) => {
               <View style={styles.description}>
                 <Text>{item.description}</Text>
               </View>
-              <View>
+              <View style={styles.image}>
                 <Image source={family} resizeMode='cover' />
               </View>
             </View>
@@ -36,17 +36,26 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
   },
-  description: {},
+
   rooms: {
-    paddingHorizontal: 20,
-    paddingVertical: 12,
+    flexDirection: 'row',
+    paddingHorizontal: 10,
+    paddingVertical: 20,
     borderRadius: 4,
     borderWidth: 1,
     borderColor: colors.lightGreen,
     alignItems: 'center',
     justifyContent: 'center',
-    width: '90%',
+    width: 370,
     marginLeft: 15,
     marginBottom: 15,
+    height: 120,
+  },
+  description: {
+    flex: 7,
+    // backgroundColor: colors.blue,
+  },
+  image: {
+    flex: 3,
   },
 })
