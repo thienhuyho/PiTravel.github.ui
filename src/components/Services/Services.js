@@ -8,12 +8,11 @@ const Services = ({ services }) => {
   function handleServices() {
     return (
       <View style={styles.container}>
-        {services.map((item, index) => {
+        {services?.map((item, index) => {
           // console.log('hihi', item)
           return (
-            <View style={styles.services}>
+            <View key={index} style={styles.services}>
               <Image
-                key={index}
                 source={{ uri: `https://pibooking.vn/${item.url}` }}
                 resizeMode='cover'
                 style={styles.image}
@@ -47,18 +46,21 @@ const styles = StyleSheet.create({
   services: {
     // margin: 5,
     paddingHorizontal: 20,
-    paddingVertical: 20,
-    borderRadius: 2,
-    borderWidth: 2,
-    borderColor: '#20232a',
-    alignSelf: 'flex-start',
+    paddingVertical: 12,
+    borderRadius: 4,
+    borderWidth: 1,
+    borderColor: colors.lightGreen,
+    alignItems: 'center',
+    justifyContent: 'center',
     width: '44%',
     marginLeft: 15,
     marginBottom: 15,
   },
   image: {
-    width: 20,
-    height: 20,
+    marginBottom: 10,
+    marginTop: 10,
+    width: 23,
+    height: 23,
   },
   servicesContent: {},
 })
