@@ -62,8 +62,8 @@ const ImageHotel = ({ images }) => {
                   source={{ uri: `https://pibooking.vn/${item.url}` }}
                   resizeMode='cover'
                   style={{
-                    width: 360,
-                    height: 360,
+                    width: 365,
+                    height: 365,
                   }}
                 />
               </View>
@@ -75,13 +75,14 @@ const ImageHotel = ({ images }) => {
                   right: 40,
                 }}
               >
-                <Text
+                {/* <Text
                   style={{
                     ...FONTS.h1,
                     color: COLORS.gray,
                     textAlign: 'center',
                   }}
-                ></Text>
+                >
+                </Text> */}
 
                 <Text
                   style={{
@@ -91,33 +92,9 @@ const ImageHotel = ({ images }) => {
                     color: COLORS.gray,
                   }}
                 >
-                  {/* {item.description} */}
+                  Huy đẹp trai! Ahihi đồ ngốk!!!
                 </Text>
               </View>
-              {/* Button */}
-              {/* <TouchableOpacity
-                style={{
-                  position: 'absolute',
-                  right: 0,
-                  bottom: 0,
-                  width: 150,
-                  height: 60,
-                  paddingLeft: 20,
-                  justifyContent: 'center',
-                  borderTopLeftRadius: 30,
-                  borderBottomLeftRadius: 30,
-                  borderBottomRightRadius: 0,
-                  borderTopRightRadius: 0,
-                  backgroundColor: COLORS.blue,
-                }}
-                onPress={() => {
-                  console.log('Button on pressed')
-                }}
-              >
-                <Text style={{ ...FONTS.h1, color: COLORS.white }}>
-                  {completed ? "Let's Go" : 'Skip'}
-                </Text>
-              </TouchableOpacity> */}
             </View>
           )
         })}
@@ -177,7 +154,7 @@ const styles = StyleSheet.create({
   },
   dotsRootContainer: {
     position: 'absolute',
-    bottom: SIZES.height > 700 ? '20%' : '16%',
+    bottom: '-15%',
   },
   dotsContainer: {
     flexDirection: 'row',

@@ -1,5 +1,6 @@
 package com.pitravel;
 import com.cmcewen.blurview.BlurViewPackage;
+import com.airbnb.android.react.maps.MapsPackage;
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
@@ -19,7 +20,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-          new BlurViewPackage()
+          new BlurViewPackage(),
+          new MapsPackage()
+
       );
     }
 

@@ -17,9 +17,9 @@ const Booking = ({}) => {
       <CustomButton
         title={'LIÊN HỆ ĐẶT PHÒNG'}
         style={{
-          marginHorizontal: 20,
-          width: '90%',
-          marginVertical: 20,
+          marginHorizontal: 15,
+          width: '92%',
+          marginVertical: 15,
           backgroundColor: colors.orange,
           height: 40,
         }}
