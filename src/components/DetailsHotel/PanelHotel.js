@@ -13,6 +13,7 @@ import CustomModal from '../common/CustomModal'
 import Booking from '../Booking'
 import Content from './Content'
 import Services from '../Services/Services'
+import HotelsRoom from '../RoomType/HotelsRoom'
 
 const PanelHotel = ({ route, navigation }) => {
   const { idHotel } = route.params
@@ -20,6 +21,7 @@ const PanelHotel = ({ route, navigation }) => {
   const [image, setImage] = React.useState([])
   const [posts, setPosts] = React.useState([])
   const [services, setServices] = React.useState([])
+  const [room, setRoom] = React.useState([])
   React.useEffect(() => {
     async function fetchHotel() {
       const response = await fetch(`https://pibooking.vn/api/hotels/${idHotel}`)
@@ -28,6 +30,7 @@ const PanelHotel = ({ route, navigation }) => {
       setImage(hotel.images)
       setPosts(hotel.posts)
       setServices(hotel.services)
+      setRoom(hotel.hotel_rooms)
     }
     fetchHotel()
   }, [])
@@ -69,6 +72,7 @@ const PanelHotel = ({ route, navigation }) => {
         <Booking />
         <Content posts={posts} />
         <Services services={services} />
+        <HotelsRoom hotelRooms={room} />
         <Button title='Map' onPress={() => navigation.navigate('Map')} />
 
         <Footer />

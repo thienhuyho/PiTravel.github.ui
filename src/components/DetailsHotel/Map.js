@@ -1,37 +1,42 @@
 import React, { Component } from 'react'
-import { StyleSheet, View } from 'react-native'
-import MapView from 'react-native-maps'
-import { Marker } from 'react-native-maps'
+import { View, StyleSheet } from 'react-native'
+import MapView, { Marker } from 'react-native-maps'
 
 export default class App extends Component {
   render() {
-    const { region } = this.props
-    console.log(region)
-
     return (
       <View style={styles.container}>
         <MapView
           style={styles.map}
-          region={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.015,
-            longitudeDelta: 0.0121,
+          initialRegion={{
+            latitude: 40.7030799,
+            longitude: -74.0559131,
+            latitudeDelta: 0,
+            longitudeDelta: 0.05,
           }}
-        ></MapView>
+        >
+          <Marker
+            coordinate={{
+              latitude: 40.7030799,
+              longitude: -74.0559131,
+            }}
+            title='Demo'
+            description='A location to test'
+          />
+        </MapView>
       </View>
     )
   }
 }
+
 const styles = StyleSheet.create({
   container: {
-    ...StyleSheet.absoluteFillObject,
-    height: 400,
-    width: 400,
-    justifyContent: 'flex-end',
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   map: {
-    ...StyleSheet.absoluteFillObject,
+    height: '100%',
+    width: '100%',
   },
 })
