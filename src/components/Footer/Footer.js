@@ -1,10 +1,11 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
+import colors from '../../theme/colors'
 
 const Footer = () => {
   return (
     <View style={styles.headerFooterStyle}>
-      <View style={styles.rowFlex}>
+      <View style={[styles.rowFlex, { marginBottom: -10 }]}>
         <Image
           source={require('../../assets/image/Group34.png')}
           style={styles.abc}
@@ -18,7 +19,7 @@ const Footer = () => {
           style={styles.abc}
         />
       </View>
-      <View style={styles.rowFlex}>
+      <View style={[styles.rowFlex, { marginTop: -15 }]}>
         <Image
           source={require('../../assets/image/Group37.png')}
           style={styles.abc}
@@ -43,6 +44,7 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#00a99d',
     justifyContent: 'center',
+    alignItems: 'center',
   },
 
   abc: {
@@ -54,7 +56,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'flex-end',
 
     // flexDirection: "vertical",
   },
+  father: {},
 })
