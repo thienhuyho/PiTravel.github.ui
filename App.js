@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import Home from './src/components/Home'
 import PanelHotel from './src/components/DetailsHotel/PanelHotel'
+import Map from './src/components/DetailsHotel/Map'
 // import Footer from './src/components/Footer/Footer';
 import { StyleSheet, Text, View } from 'react-native'
 const Stack = createStackNavigator()
@@ -18,6 +19,7 @@ const App = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen name='PanelHotel' component={PanelHotel} />
+        <Stack.Screen name='Map' component={Map} />
       </Stack.Navigator>
     </NavigationContainer>
     // <View style={styles.container}>
