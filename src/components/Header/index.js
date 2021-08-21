@@ -1,13 +1,5 @@
 import React, { useState } from 'react'
-import {
-  TouchableOpacity,
-  Text,
-  View,
-  SafeAreaView,
-  Image,
-  TextInput,
-  Pressable,
-} from 'react-native'
+import { TouchableOpacity, View, Image } from 'react-native'
 import EvilIcons from 'react-native-vector-icons/EvilIcons'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
@@ -21,7 +13,7 @@ const logoImage = require('../../assets/image/Logo-Pi.png')
 const CHPlayImage = require('../../assets/image/CHplay.png')
 const appStoreImage = require('../../assets/image/appstore.png')
 
-const Header = ({}) => {
+const Header = ({ showSearch }) => {
   const [isFulled, setIsFulled] = useState(false)
   const [loading, setLoading] = useState(false)
   return (
@@ -39,73 +31,75 @@ const Header = ({}) => {
             </View>
           </View>
         </View>
-        <View style={styles.searchSection}>
-          <View
-            style={[styles.searchContainer, { height: isFulled ? 290 : 100 }]}
-          >
-            <Input
-              style={{ marginBottom: 20 }}
-              leftIcon={
-                <AntDesign name='search1' size={30} color={colors.darkGrey} />
-              }
-              placeholder='Bạn muốn đến đâu ?'
-            />
-            {isFulled && (
-              <>
-                <Input
-                  style={{ marginBottom: 20 }}
-                  leftIcon={
-                    <AntDesign
-                      name='calendar'
-                      size={30}
-                      color={colors.darkGrey}
-                    />
-                  }
-                  placeholder='Nhận phòng - trả phòng'
-                />
-                <Input
-                  style={{ marginBottom: 20 }}
-                  leftIcon={
-                    <SimpleLineIcons
-                      name='people'
-                      size={30}
-                      color={colors.darkGrey}
-                    />
-                  }
-                  rightIcon={
-                    <EvilIcons
-                      name='chevron-down'
-                      size={30}
-                      color={colors.darkGrey}
-                    />
-                  }
-                  placeholder='2 người lớn. 0 trẻ em. 1 phòng'
-                />
-                <CustomButton
-                  title='TÌM'
-                  style={{ backgroundColor: colors.orange }}
-                  textStyle={{ color: colors.white, fontWeight: 'bold' }}
-                  loading={loading}
-                  onPress={() => setLoading(prev => !prev)}
-                  // disabled
-                  // leftIcon={
-                  //   <AntDesign name='search1' size={30} color={colors.grey} />
-                  // }
-                />
-              </>
-            )}
-            <TouchableOpacity
-              style={styles.chevron}
-              onPress={() => setIsFulled(prev => !prev)}
+        {showSearch && (
+          <View style={styles.searchSection}>
+            <View
+              style={[styles.searchContainer, { height: isFulled ? 290 : 100 }]}
             >
-              <EvilIcons
-                name={`chevron-${isFulled ? 'up' : 'down'}`}
-                color={colors.white}
-                size={30}
+              <Input
+                style={{ marginBottom: 20 }}
+                leftIcon={
+                  <AntDesign name='search1' size={30} color={colors.darkGrey} />
+                }
+                placeholder='Bạn muốn đến đâu ?'
               />
-            </TouchableOpacity>
+              {isFulled && (
+                <>
+                  <Input
+                    style={{ marginBottom: 20 }}
+                    leftIcon={
+                      <AntDesign
+                        name='calendar'
+                        size={30}
+                        color={colors.darkGrey}
+                      />
+                    }
+                    placeholder='Nhận phòng - trả phòng'
+                  />
+                  <Input
+                    style={{ marginBottom: 20 }}
+                    leftIcon={
+                      <SimpleLineIcons
+                        name='people'
+                        size={30}
+                        color={colors.darkGrey}
+                      />
+                    }
+                    rightIcon={
+                      <EvilIcons
+                        name='chevron-down'
+                        size={30}
+                        color={colors.darkGrey}
+                      />
+                    }
+                    placeholder='2 người lớn. 0 trẻ em. 1 phòng'
+                  />
+                  <CustomButton
+                    title='TÌM'
+                    style={{ backgroundColor: colors.orange }}
+                    textStyle={{ color: colors.white, fontWeight: 'bold' }}
+                    loading={loading}
+                    onPress={() => setLoading(prev => !prev)}
+                    // disabled
+                    // leftIcon={
+                    //   <AntDesign name='search1' size={30} color={colors.grey} />
+                    // }
+                  />
+                </>
+              )}
+              <TouchableOpacity
+                style={styles.chevron}
+                onPress={() => setIsFulled(prev => !prev)}
+              >
+                <EvilIcons
+                  name={`chevron-${isFulled ? 'up' : 'down'}`}
+                  color={colors.white}
+                  size={30}
+                />
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
+        )}
       </View>
     </View>
   )

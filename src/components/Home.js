@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Button, ScrollView, Image } from 'react-native'
+import { StyleSheet, View, ScrollView } from 'react-native'
 import Footer from './Footer/Footer'
 import MapVN from './Content/MapVN'
 import PostContent from './Content/PostContent'
@@ -9,7 +9,7 @@ import Header from './Header'
 export default function Home({ navigation }) {
   return (
     <ScrollView>
-      <Header />
+      <Header showSearch />
       <MapVN />
       <PostContent />
       <ListHotels navigation={navigation} />
