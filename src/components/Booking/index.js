@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, TouchableOpacity } from 'react-native'
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import CheckBox from 'react-native-check-box'
@@ -8,10 +8,16 @@ import colors from '../../theme/colors'
 import CustomModal from '../common/CustomModal'
 import CustomButton from '../common/CustomButton'
 import Input from '../common/Input'
+import AdditionalModal from './AdditionalModal'
 
 const Booking = ({}) => {
   const [modalVisible, setModalVisible] = useState(false)
   const [isGoForBusiness, setIsGoForBusiness] = useState(false)
+  const openModal = () => {
+    setModalVisible(true)
+    setIsGoForBusiness(false)
+  }
+
   return (
     <View>
       <CustomButton
@@ -24,7 +30,7 @@ const Booking = ({}) => {
           height: 40,
         }}
         textStyle={{ color: colors.white, fontWeight: 'bold' }}
-        onPress={() => setModalVisible(true)}
+        onPress={openModal}
       />
       <CustomModal
         closeOnClickOutSide={false}
@@ -36,7 +42,12 @@ const Booking = ({}) => {
           backgroundColor: colors.lightGreen,
         }}
       >
-        <Text style={styles.title}>Thông Tin Khách Hàng</Text>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Thông Tin Khách Hàng</Text>
+          <TouchableOpacity onPress={() => setModalVisible(false)}>
+            <AntDesign name={'close'} size={25} color={colors.white} />
+          </TouchableOpacity>
+        </View>
         <Input
           editable={false}
           label={'Tên chỗ nghỉ/Điểm đến:'}
@@ -147,16 +158,7 @@ const Booking = ({}) => {
             Tôi đi công tác
           </Text>
         </View>
-        <CustomButton
-          title={'LIÊN HỆ ĐẶT PHÒNG'}
-          style={{
-            marginTop: 20,
-            backgroundColor: colors.orange,
-            height: 40,
-          }}
-          textStyle={{ color: colors.white, fontWeight: 'bold' }}
-          onPress={() => setModalVisible(false)}
-        />
+        <AdditionalModal />
       </CustomModal>
     </View>
   )
