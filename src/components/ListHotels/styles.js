@@ -40,6 +40,7 @@ export default StyleSheet.create({
     height: 70,
     width: 80,
     backgroundColor: 'red',
+    borderRadius: 10,
   },
   left: {
     marginRight: 5,

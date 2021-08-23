@@ -22,6 +22,12 @@ const PanelHotel = ({ route, navigation }) => {
   const [posts, setPosts] = React.useState([])
   const [services, setServices] = React.useState([])
   const [room, setRoom] = React.useState([])
+  const [map, setMap] = React.useState({
+    lat: 16.4527,
+    long: 107.6061,
+    name: '',
+    address: '',
+  })
   React.useEffect(() => {
     async function fetchHotel() {
       const response = await fetch(`https://pibooking.vn/api/hotels/${idHotel}`)
@@ -31,6 +37,12 @@ const PanelHotel = ({ route, navigation }) => {
       setPosts(hotel.posts)
       setServices(hotel.services)
       setRoom(hotel.hotel_rooms)
+      setMap({
+        lat: hotel?.lat,
+        long: hotel?.long,
+        name: hotel?.name,
+        address: hotel?.address,
+      })
     }
     fetchHotel()
   }, [])
@@ -49,7 +61,6 @@ const PanelHotel = ({ route, navigation }) => {
       arrStar.push(<Icon key={i} name='star' color='yellow' size={20} />)
     return arrStar
   }
-  console.log('data', data)
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -68,12 +79,24 @@ const PanelHotel = ({ route, navigation }) => {
           </Text>
           <Text style={styles.price}>Giá Chỉ từ: {format()}</Text>
         </View>
+        <Text
+          style={styles.titleMap}
+          onPress={() =>
+            navigation.navigate('Map', {
+              lat: map.lat,
+              long: map.long,
+              name: map.name,
+              address: map.address,
+            })
+          }
+        >
+          - Hiển thị trên bản đồ
+        </Text>
         <ImageHotel images={image} />
         <Booking />
         <Content posts={posts} />
         <Services services={services} />
         <HotelsRoom hotelRooms={room} />
-        <Button title='Map' onPress={() => navigation.navigate('Map')} />
 
         <Footer />
       </View>

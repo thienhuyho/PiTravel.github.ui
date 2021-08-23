@@ -19,14 +19,12 @@ const PostContent = () => {
       .then(response => response.json())
       .then(responseJson => {
         // Alert.alert("The film at 2nd:  " + responseJson.movies[1].title);
-        console.log('du lieu:', responseJson)
         setPost(responseJson)
       })
       .catch(error => {
         console.error(error)
       })
   }, [])
-  console.log(post)
   // const htmlTitle = `${post.name}`
 
   const html = `${post.content}`

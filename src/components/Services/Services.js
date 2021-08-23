@@ -3,13 +3,10 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import colors from '../../theme/colors'
 
 const Services = ({ services }) => {
-  console.log('services1', services)
-
   function handleServices() {
     return (
       <View style={styles.container}>
         {services?.map((item, index) => {
-          // console.log('hihi', item)
           return (
             <View key={index} style={styles.services}>
               <Image
@@ -61,6 +58,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: 23,
     height: 23,
+    resizeMode: 'contain',
   },
   servicesContent: {},
 })

@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import appTheme from './theme'
+import colors from '../../theme/colors'
 
 const { COLORS, FONTS, SIZES } = appTheme
 const ImageHotel = ({ images }) => {
@@ -64,6 +65,7 @@ const ImageHotel = ({ images }) => {
                   style={{
                     width: 365,
                     height: 365,
+                    borderRadius: 10,
                   }}
                 />
               </View>
@@ -166,7 +168,7 @@ const styles = StyleSheet.create({
   },
   dot: {
     borderRadius: SIZES.radius,
-    backgroundColor: COLORS.blue,
+    backgroundColor: colors.white,
     marginHorizontal: SIZES.radius / 2,
   },
 })

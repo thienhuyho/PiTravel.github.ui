@@ -5,7 +5,6 @@ import RenderHTML from 'react-native-render-html'
 import colors from '../../theme/colors'
 
 const Content = ({ posts }) => {
-  console.log('data', posts)
   const html = `${posts.content}`
   const { width } = useWindowDimensions()
 
