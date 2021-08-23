@@ -46,4 +46,13 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 10,
   },
+  titleMap: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: colors.blue,
+    marginLeft: 15,
+    marginBottom: 10,
+    textDecorationLine: 'underline',
+    // cursor: 'pointer',
+  },
 })
